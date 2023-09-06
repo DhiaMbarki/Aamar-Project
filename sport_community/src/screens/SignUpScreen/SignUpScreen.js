@@ -1,17 +1,18 @@
-import { View, Text, Image,  StyleSheet, useWindowDimensions, ScrollView } from 'react-native'
+import { View, Text,  StyleSheet , ScrollView } from 'react-native'
 import React, {useState} from 'react'
-import Logo from '../../../assets/images/gym.png'
 import CustomInput from '../../components/CustomInput/CustomInput'
 import CustomButton from '../../components/CustomButton/CustomButton'
 
-const SignInScreen = () => {
+const SignUpScreen = () => {
   const [username, setUsername ] = useState('')
+  const [email, setEmail ] = useState('')
+
   const [passowrd, setPassword ] = useState('')
+  const [passowrdRepeat, setPasswordRepeat ] = useState('')
 
-  const {height} = useWindowDimensions();
 
-  const onSignInPressed = () => {
-    console.warn("Sign in")
+  const onRegisterPressed = () => {
+    console.warn("onRegisterPressed")
   }
 
   const onForgotPasswordPressed = () => {
@@ -33,23 +34,38 @@ const SignInScreen = () => {
     console.warn ('onSignUpPress')
   }
 
+  const onTermOfUsePressed = () => {
+    console.warn ('onTermOfUsePressed')
+  }
+
+  const onPrivacyPressed = () => {
+    console.warn ('onPrivacyPressed')
+  }
+
   return (
     <ScrollView>
     <View style={styles.root}>
-      <Image source={Logo} 
-      style={[styles.logo, {height: height * 0.3}]}
-      resizeMode='contain'
-      />
+     <Text style={styles.title}> Create an account</Text>
 
       <CustomInput placeholder="Username" value={username} setValue={setUsername}/>
+      <CustomInput placeholder="Email" value={email} setValue={setEmail}/>
+
       <CustomInput placeholder="Passowrd" value={passowrd} setValue={setPassword} 
-      secureTextEntry={true}
+      secureTextEntry
       />
-      <CustomButton text ="Sign In" onPress={onSignInPressed} />
+       <CustomInput placeholder="Repeat Passowrd" value={passowrdRepeat} setValue={setPasswordRepeat} 
+      secureTextEntry
+      />
 
 
-      <CustomButton text ="Forgot password?" onPress={onForgotPasswordPressed} type="TERTIARY"/>
+      <CustomButton text ="Register" onPress={onRegisterPressed} />
 
+ 
+        <Text style={styles.text}>
+        By registerng, you confirm that you accept our {' '} 
+        <Text style={styles.link} onPress={onTermOfUsePressed}>terms of Use </Text> and {' '}
+        <Text style={styles.link} onPress={onPrivacyPressed}> Privacy Policy</Text>
+        </Text>
       <CustomButton text ="Sign with Facebook" onPress={onSignInFacebook} 
       bgColor="#E7EAF4"
       fgColor="#4765A9"
@@ -79,10 +95,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
   },
-  logo: {
-    width: '70%',
-    maxWidth: 300,
-    maxHeight: 200,
+   
+  title : {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#051C60',
+    margin: 10,
   },
+
+  text :{
+    color: 'gray',
+    marginVertical:10,
+  },
+  link: {
+    color: '#FDB075'
+  }
+
 });
-export default SignInScreen
+export default SignUpScreen
