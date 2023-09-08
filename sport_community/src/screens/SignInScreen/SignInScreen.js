@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import Logo from '../../../assets/images/gym.png'
 import CustomInput from '../../components/CustomInput/CustomInput'
 import CustomButton from '../../components/CustomButton/CustomButton'
+import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons'
 
 const SignInScreen = () => {
   const [username, setUsername ] = useState('')
@@ -19,15 +20,7 @@ const SignInScreen = () => {
 
   }
 
-  const onSignInFacebook= () => {
-    console.warn('onSignInFacebook')
-  }
-    const onSignInGoogle= () => {
-    console.warn('onSignInGoogle')
-  }
-  const onSignInApple= () => {
-    console.warn('onSignInApple')
-  }
+
 
   const onSignUpPress = () => {
     console.warn ('onSignUpPress')
@@ -50,19 +43,7 @@ const SignInScreen = () => {
 
       <CustomButton text ="Forgot password?" onPress={onForgotPasswordPressed} type="TERTIARY"/>
 
-      <CustomButton text ="Sign with Facebook" onPress={onSignInFacebook} 
-      bgColor="#E7EAF4"
-      fgColor="#4765A9"
-      />
-      <CustomButton text ="Sign with Google" onPress={onSignInGoogle}
-      bgColor="#FAE9EA"
-      fgColor="#DD4D44"
-      />
-      <CustomButton text ="Sign In with Apple" onPress={onSignInApple}
-      bgColor="#e3e3e3"
-      fgColor="#363636"
-
-      />
+     <SocialSignInButtons/>
 
 <CustomButton text ="Don't have an account? Create one" onPress={onSignUpPress} type="TERTIARY"/>
 
