@@ -19,10 +19,14 @@ public class MainActivity extends ReactActivity {
     return "sport_community";
   }
 
-   @Override
+   public class MainActivity extends ReactActivity {
+  // ...
+  @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(null);
   }
+  // ...
+}
 
   /**
    * Returns the instance of the {@link ReactActivityDelegate}. Here we use a util class {@link

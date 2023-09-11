@@ -3,20 +3,22 @@ import React, {useState} from 'react'
 import CustomInput from '../../components/CustomInput/CustomInput'
 import CustomButton from '../../components/CustomButton/CustomButton'
 import SocialSignInButtons from '../../components/SocialSignInButtons'
+import {useNavigation} from '@react-navigation/native'
 
 
 const NewPasswordScreen = () => {
 
   const [code, setCode ] = useState('')
   const [newPassword, setNewPassword ] = useState('')
+  const navigation = useNavigation();
 
 
   const onSubmitPressed = () => {
-    console.warn("onSubmitPressed")
+    navigation.navigate('Home')
   }
 
   const onSignInPress = () => {
-    console.warn ('onSignInPress')
+    navigation.navigate('SignIn')
   }
 
  
